@@ -1,6 +1,8 @@
 package FootballGame;
 
-public class Estadio {
+import FootballGame.Interfaces.IImprimible;
+
+public class Estadio implements IImprimible {
 
     private String nombre;
     private String ciudad;
@@ -38,5 +40,10 @@ public class Estadio {
 
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+    @Override
+    public String impresion() {
+        return "[Estadio] "+ nombre + " ("+ciudad + " - " + pais + ")";
     }
 }

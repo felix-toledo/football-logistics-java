@@ -1,8 +1,9 @@
 package FootballGame;
 
+import FootballGame.Interfaces.IImprimible;
 import FootballGame.Interfaces.IJugador;
 
-public class Jugador implements IJugador {
+public class Jugador implements IJugador, IImprimible {
      private String nombre;
      private int numero;
 
@@ -33,5 +34,10 @@ public class Jugador implements IJugador {
 
      public void setNumero(int numero) {
           this.numero = numero;
+     }
+
+     @Override
+     public String impresion() {
+          return "[Jugador " + numero + "] " + nombre + " > " + posicion;
      }
 }

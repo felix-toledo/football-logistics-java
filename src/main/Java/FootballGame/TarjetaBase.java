@@ -1,15 +1,17 @@
 package FootballGame;
 
+import FootballGame.Interfaces.IJugador;
+
 public abstract class TarjetaBase {
-     Jugador jugador;
+     IJugador jugador;
      String tipo;
 
-     public TarjetaBase(String tipoTarjeta, Jugador jugador){
+     public TarjetaBase(String tipoTarjeta, IJugador jugador){
           setJugador(jugador);
           setColor(tipoTarjeta);
      }
 
-     private void setJugador(Jugador jugador) {
+     private void setJugador(IJugador jugador) {
           this.jugador = jugador;
      }
 
@@ -23,7 +25,7 @@ public abstract class TarjetaBase {
           this.tipo = tipo;
      }public String getColor() {
           return tipo;
-     }public Jugador getJugador() {
+     }public IJugador getJugador() {
           return jugador;
      }
 }

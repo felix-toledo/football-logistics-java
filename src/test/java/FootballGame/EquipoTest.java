@@ -14,8 +14,8 @@ public class EquipoTest {
 
 
         Jugador jugadorBoca6 = new Jugador("Marcos Rojo", 6);
-        Jugador jugadorBoca10 = new Jugador("Edinson Cavani", 10);
         Jugador jugadorBoca19 = new Jugador("Valentin Barco", 19);
+        Jugador jugadorBoca10 = new Jugador("Edinson Cavani", 10);
 
         //Agregamos en diferente al orden numerico de la camiseta
         boca.agregar(jugadorBoca6);
@@ -27,7 +27,6 @@ public class EquipoTest {
         jugadorBoca19.setPosicion("Volante");
 
         assertEquals(resultadoEsperado, boca.imprimirPlantel());
-
 
     }
 

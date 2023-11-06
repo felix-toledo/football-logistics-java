@@ -1,6 +1,7 @@
 package FootballGame;
 
 
+import FootballGame.Interfaces.IJugador;
 import org.junit.Test;
 import static org.junit.Assert.*;
 public class TarjetaTest {
@@ -40,9 +41,9 @@ public class TarjetaTest {
         Equipo boca = new Equipo("Boca Juniors", "BOC");
         Equipo palmeiras = new Equipo("Palmeiras", "PAL");
 
-        Jugador jugadorBoca6 = new Jugador("Marcos Rojo", 6);
-        Jugador jugadorBoca10 = new Jugador("Edinson Cavani", 10);
-        Jugador jugadorBoca19 = new Jugador("Valentin Barco", 19);
+        IJugador jugadorBoca6 = new Jugador("Marcos Rojo", 6);
+        IJugador jugadorBoca10 = new Jugador("Edinson Cavani", 10);
+        IJugador jugadorBoca19 = new Jugador("Valentin Barco", 19);
 
 
         boca.agregar(jugadorBoca6);
@@ -50,7 +51,7 @@ public class TarjetaTest {
         boca.agregar(jugadorBoca19);
 
 
-        Jugador jugadorPalmeiras10 = new Jugador("Rony", 10);
+        IJugador jugadorPalmeiras10 = new Jugador("Rony", 10);
 
 
         palmeiras.agregar(jugadorPalmeiras10);

@@ -1,10 +1,15 @@
 package FootballGame;
 
-import java.util.ArrayList;
+import FootballGame.Interfaces.IImprimible;
+import FootballGame.Interfaces.IJugador;
 
-public class Equipo {
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Collections;
+
+public class Equipo implements IImprimible {
     private String nombre;
-    private ArrayList<Jugador> jugadores = new ArrayList<>();
+    private ArrayList<IJugador> jugadores = new ArrayList<>();
     private String abreviatura;
 
     public Equipo(String name, String abreviatura){
@@ -12,7 +17,7 @@ public class Equipo {
         setAbreviatura(abreviatura);
     }
 
-    public void agregar(Jugador jugador){
+    public void agregar(IJugador jugador){
         jugadores.add(jugador);
     }
 
@@ -20,8 +25,8 @@ public class Equipo {
         return jugadores.size();
     }
 
-    public Jugador obtenerJugador(int num){
-        Jugador encontrado = jugadores.stream()
+    public IJugador obtenerJugador(int num){
+        IJugador encontrado = jugadores.stream()
                                       .filter(jugador -> jugador.getNumero() == num)
                                       .findFirst()
                                       .orElse(null);
@@ -45,17 +50,26 @@ public class Equipo {
     }
 
     public String imprimirPlantel(){
+        // sort jugadores by numero
+        // [%s] %s (%s),... .format(numero, nombre, posicion)
+        ArrayList<IJugador> jugadores = this.jugadores;
+        Comparator<IJugador> byNumero = Comparator.comparing(IJugador::getNumero);
+        Collections.sort(jugadores, byNumero);
         String plantel = "";
-        for (Jugador jugador:
-             jugadores) {
-            if (plantel == ""){
-                plantel = plantel + "[" +jugador.getNumero() + "] " +jugador.getName() + " (" + jugador.getPosicion() + ")";
+        for (IJugador jugador : jugadores) {
+            if (!plantel.isEmpty()){
+                plantel = plantel.concat(", ");
             }
-            else{
-                plantel = plantel + ", [" +jugador.getNumero() + "] " +jugador.getName() + " (" + jugador.getPosicion() + ")";
-            }
+            plantel = plantel.concat("[" + jugador.getNumero() + "] " +
+                    jugador.getName() + " (" + jugador.getPosicion() +")"
+            );
         }
+
         return plantel;
     }
 
+    @Override
+    public String impresion() {
+        return "[Equipo] " + nombre + " > " + abreviatura;
+    }
 }
