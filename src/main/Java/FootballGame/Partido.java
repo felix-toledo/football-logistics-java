@@ -9,6 +9,11 @@ public class Partido {
      private Estadio estadio;
      private ArrayList<TarjetaBase> tarjetas = new ArrayList<>();
 
+     Arbitro arbitro;
+     Arbitro arbitroLinea;
+     Arbitro arbitroAsistente;
+
+
      public Partido(Estadio estad, Equipo l, Equipo v, String f){
           setEstadio(estad);
           this.local = l;

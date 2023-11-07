@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 
 public class Var {
     private Partido partido;
+    IntegranteDelVar asistenteDeVideo;
+    IntegranteDelVar aVar;
 
     public Var(Partido par){
         setPartido(par);
