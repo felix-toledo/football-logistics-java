@@ -2,6 +2,8 @@ package FootballGame;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 public class Partido {
      Equipo local;
      Equipo visitante;
@@ -121,6 +123,17 @@ public class Partido {
           this.fecha = fechita;
      } public Date getFecha(){
           return fecha;
+     }
+     public String getFechaFormateada(){
+          int dia = fecha.getDay();
+          int anio = fecha.getYear();
+          int mes = fecha.getMonth();
+
+          SimpleDateFormat dateFormat = new SimpleDateFormat(
+                  "dd/MM/yyyy");
+          String stringFecha = dateFormat.format(fecha);
+
+          return stringFecha;
      }
 
 }

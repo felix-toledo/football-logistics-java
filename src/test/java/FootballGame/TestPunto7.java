@@ -24,6 +24,14 @@ public class TestPunto7 {
         partido.setFecha(fecha);
 
         assertEquals(fecha, partido.getFecha());
+        assertEquals("08/11/2023", partido.getFechaFormateada());
 
+        calendar.set(2023, 11, 13); //Mes 11 = Diciembre (comienza en 0)
+        Date fecha2 = calendar.getTime();
+        partido.setFecha(fecha2);
+
+        assertEquals(fecha2, partido.getFecha());
+        assertEquals("13/12/2023", partido.getFechaFormateada());
     }
+
 }
