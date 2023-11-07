@@ -6,6 +6,7 @@ import FootballGame.Interfaces.IJugador;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Collections;
+import java.util.function.Predicate;
 
 public class Equipo implements IImprimible {
     private String nombre;
@@ -72,4 +73,13 @@ public class Equipo implements IImprimible {
     public String impresion() {
         return "[Equipo] " + nombre + " > " + abreviatura;
     }
+
+        public int cantidadMediocampoConNumerosMayorQue7(){
+            Predicate<IJugador> esMediocampo = jugador -> jugador.getPosicion().equals("Mediocampo");
+            Predicate<IJugador> numeroMayorQue7 = jugador -> jugador.getNumero() > 7;
+            long cantidad = jugadores.stream()
+                                    .filter(esMediocampo.and(numeroMayorQue7))
+                                    .count();
+            return (int) cantidad;
+        }
 }
