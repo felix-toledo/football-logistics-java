@@ -10,7 +10,7 @@ public class Partido {
      private ArrayList<TarjetaBase> tarjetas = new ArrayList<>();
 
      Arbitro arbitro;
-     Arbitro arbitroLinea;
+     ArrayList<Arbitro> arbitroLinea = new ArrayList<>();
      Arbitro arbitroAsistente;
 
 
@@ -24,6 +24,71 @@ public class Partido {
           this.local = l;
           this. visitante = v;
           setName(f + " "+l.getAbreviatura() + "x" + v.getAbreviatura());
+     }public Partido(Estadio estadio, Equipo local, Equipo visitante, String nombrePartido, Arbitro arbitro, Arbitro linea1, Arbitro linea2, Arbitro arbitroAsistente) throws Exception {
+          setEstadio(estadio);
+          setLocal(local);
+          setVisitante(visitante);
+          setNombre(nombrePartido);
+          setArbitro(arbitro);
+          setArbitroAsistente(arbitroAsistente);
+          setArbitroLinea(linea1);
+          setArbitroLinea(linea2);
+     }
+
+     public void setArbitro(Arbitro arbitro) {
+          this.arbitro = arbitro;
+     }
+
+     public Arbitro getArbitro() {
+          return arbitro;
+     }
+
+     public void setArbitroAsistente(Arbitro arbitroAsistente) {
+          this.arbitroAsistente = arbitroAsistente;
+     }
+
+     public Arbitro getArbitroAsistente() {
+          return arbitroAsistente;
+     }
+
+     public void setArbitroLinea(Arbitro arbitroLineaActual) throws Exception {
+          if(arbitroLinea.size() == 2){
+               throw new Exception("No pueden haber mas de dos arbitros");
+          } else{
+               arbitroLinea.add(arbitroLineaActual);
+          }
+     }
+
+     public ArrayList<Arbitro> getArbitroLinea() {
+          return arbitroLinea;
+     }
+
+     public void setLocal(Equipo local) {
+          this.local = local;
+     }
+
+     public Equipo getLocal() {
+          return local;
+     }
+     public void setVisitante(Equipo visitante) {
+          this.visitante = visitante;
+     }
+
+
+     public void setNombre(String nombre) {
+          this.nombre = nombre;
+     }
+
+     public Equipo getVisitante() {
+          return visitante;
+     }
+
+     public void setTarjetas(ArrayList<TarjetaBase> tarjetas) {
+          this.tarjetas = tarjetas;
+     }
+
+     public String getNombre() {
+          return nombre;
      }
 
      public void agregar(TarjetaBase tarjeta){
