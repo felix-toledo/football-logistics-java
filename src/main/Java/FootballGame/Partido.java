@@ -1,7 +1,7 @@
 package FootballGame;
 
 import java.util.ArrayList;
-
+import java.util.Date;
 public class Partido {
      Equipo local;
      Equipo visitante;
@@ -114,4 +114,13 @@ public class Partido {
      public void setEstadio(Estadio estadio) {
           this.estadio = estadio;
      }
+
+
+     private Date fecha;
+     public void setFecha(Date fechita){
+          this.fecha = fechita;
+     } public Date getFecha(){
+          return fecha;
+     }
+
 }
